@@ -482,6 +482,12 @@
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{background:var(--bg);color:var(--text);font-family:'Montserrat',sans-serif;font-weight:400;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;scroll-behavior:smooth}
   body{overflow-x:hidden;line-height:1.5}
+  body::before{
+    content:"";position:fixed;inset:0;
+    background:radial-gradient(circle, rgba(255,255,255,0.025) 0.8px, transparent 1px);
+    background-size:6px 6px;
+    pointer-events:none;z-index:9999;
+  }
   body, body *, body *::before, body *::after{font-family:'Montserrat',sans-serif !important}
   img{max-width:100%;display:block}
   button{font:inherit;color:inherit;cursor:pointer;border:0;background:transparent}
@@ -694,7 +700,7 @@
     align-items:center;
     padding:44px 0 56px;
   }
-  .proof-photos{position:relative;height:470px}
+  .proof-photos{position:relative;height:470px;overflow:hidden}
   .proof-photos .pic{
     position:absolute;border-radius:14px;overflow:hidden;
     border:1px solid rgba(255,255,255,0.12);
@@ -826,7 +832,7 @@
   
   /* methodology / venn */
   .methodology{
-    background:#202020;color:#fff;
+    background:#0e0e0e;color:#fff;
     padding:96px 0;
     position:relative;
   }
@@ -904,7 +910,8 @@
     display:block;width:100%;height:auto;margin:0 auto;
   }
   @media (max-width:640px){
-    .signs-circle{width:100%;height:auto;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .signs-circle{width:calc(100% + 36px);margin-left:-18px;margin-right:-18px;display:block}
+    .signs-circle > img{width:100%;max-width:100%;display:block}
   }
   .sign{
     position:absolute;
@@ -1088,20 +1095,21 @@
   }
   
   /* bio */
-  .bio{padding:96px 0;background:#050505}
+  .bio{padding:96px 0;background:#0e0e0e;position:relative}
   .bio-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:48px;align-items:center}
   .bio-photo{
     aspect-ratio:3/4;border-radius:var(--radius-lg);overflow:hidden;
-    background:linear-gradient(180deg,#1c1208 0%, #050201 100%);
-    border:1px solid rgba(255,255,255,0.1);
+    background:#111;
+    border:1px solid rgba(255,255,255,0.08);
     position:relative;
   }
   .bio-photo .ph{
     position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-    background:radial-gradient(ellipse at 50% 35%, #2a1810 0%, #100804 50%, #000 100%);
+    background:#111;
     font-family:'Montserrat',sans-serif;font-size:11px;color:rgba(255,255,255,0.35);
     text-align:center;padding:20px;
   }
+  .bio-photo img{display:block;width:100%;height:100%;object-fit:cover}
   .bio-content h3{font-size:clamp(22px,2.6vw,30px);font-weight:600}
   .bio-content h3 .hl{color:var(--orange);font-style:italic;font-weight:500}
   .bio-content .sub{color:#fff;font-family:'Montserrat',sans-serif;font-weight:600;font-size:18px;margin-top:6px}
@@ -1186,6 +1194,15 @@
   /* arrow carousel - scale no hover */
   .dep-arrow:hover{transform:translateY(-50%) scale(1.08);background:rgba(255,77,0,0.18);border-color:rgba(255,77,0,0.55);color:var(--orange)}
 
+  /* pontos de luz laranja — vindo das laterais */
+  .path::after{content:"";position:absolute;top:0;left:0;width:55%;height:100%;background:linear-gradient(90deg,rgba(255,77,0,0.22) 0%,rgba(255,77,0,0.10) 35%,transparent 70%);pointer-events:none;z-index:0}
+  .content-ws::before{content:"";position:absolute;top:0;left:0;width:50%;height:100%;background:linear-gradient(90deg,rgba(255,77,0,0.18) 0%,rgba(255,77,0,0.08) 38%,transparent 72%);pointer-events:none;z-index:0}
+  .content-ws::after{content:"";position:absolute;top:0;right:0;width:50%;height:100%;background:linear-gradient(270deg,rgba(255,77,0,0.16) 0%,rgba(255,77,0,0.07) 38%,transparent 72%);pointer-events:none;z-index:0}
+  .testimonials::before{content:"";position:absolute;top:0;right:0;width:55%;height:100%;background:linear-gradient(270deg,rgba(255,77,0,0.18) 0%,rgba(255,77,0,0.08) 36%,transparent 70%);pointer-events:none;z-index:0}
+  .signs::before{content:"";position:absolute;top:0;left:0;width:55%;height:100%;background:linear-gradient(90deg,rgba(255,77,0,0.20) 0%,rgba(255,77,0,0.09) 36%,transparent 72%);pointer-events:none;z-index:0}
+  .guarantee::before{content:"";position:absolute;top:0;right:0;width:55%;height:100%;background:linear-gradient(270deg,rgba(255,77,0,0.22) 0%,rgba(255,77,0,0.10) 35%,transparent 70%);pointer-events:none;z-index:0}
+  .faq::before{content:"";position:absolute;top:0;right:0;width:55%;height:100%;background:linear-gradient(270deg,rgba(255,77,0,0.20) 0%,rgba(255,77,0,0.09) 36%,transparent 70%);pointer-events:none;z-index:0}
+
   /* responsive */
   @media (max-width:880px){
     section{padding:44px 0}
@@ -1198,8 +1215,10 @@
     br.desktop-break{display:none}
     .subline{max-width:680px;font-size:19px}
     .players-grid{grid-template-columns:repeat(3,1fr);gap:18px 12px}
-    .proof-stack{grid-template-columns:1fr;gap:44px;padding:28px 0 40px}
-    .proof-photos{height:360px;max-width:420px;margin:0 auto}
+    .proof-stack{grid-template-columns:1fr;gap:36px;padding:28px 0 40px}
+    .proof-photos{height:auto;max-width:100%;overflow:visible;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .proof-photos .pic{position:relative;width:100%;height:auto;aspect-ratio:3/4;transform:none !important;border-radius:12px}
+    .proof-photos .pic img{object-fit:contain;object-position:center;background:#0b0b0b}
     .proof-body{text-align:center}
     .modules-grid{grid-template-columns:1fr}
     .testi-grid{grid-template-columns:1fr 1fr}
@@ -1223,6 +1242,7 @@
     .hero .cta-progress{width:100%}
     .hero .cta-progress .label{font-size:11.5px;letter-spacing:0.18em}
     .players-grid{grid-template-columns:repeat(2,1fr)}
+    .proof-photos .pic{aspect-ratio:3/4}
     .testi-grid{grid-template-columns:1fr}
     .schedule-row{padding:14px 18px}
     .schedule-row .label,.schedule-row .time{font-size:15px}
@@ -1713,7 +1733,7 @@
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow">Ingresso</span>
-        <h2 style="margin-top:18px">Eu escrevi mais de <span class="hl">2 mil anúncios</span><br>e escalei mais de <span class="hl">20 milhões</span> para<br>aprender isso…</h2>
+        <h2 style="margin-top:18px">Eu escrevi mais de <span class="hl">2 mil anúncios</span> e escalei mais de <span class="hl">20 milhões</span> para aprender isso…</h2>
         <p class="lead">E agora você pode receber tudo mastigadinho por um valor <em>RI-DÍ-CU-LO</em> ↓</p>
       </div>
   
@@ -1804,10 +1824,10 @@
   <section class="bio" id="bio">
     <div class="container">
       <div class="bio-grid">
-        <div class="bio-photo reveal-left">
+        <div class="bio-photo">
           <img src="assets/profile.jpg" alt="Guilherme" style="width:100%;height:100%;object-fit:cover;display:block">
         </div>
-        <div class="bio-content reveal-right">
+        <div class="bio-content">
           <h3>Ainda não me conhece?<br><span class="hl">Tudo bem.</span><br>Pouca gente me conhece <span class="hl">(ainda).</span></h3>
   
           <p>Meu nome é <b>Guilherme</b>.</p>
@@ -1885,7 +1905,7 @@
   <footer>
     <div class="container">
       <!-- IMG: logo no rodapé (substituir src) -->
-      <img class="brand-logo" src="blob:http://127.0.0.1:5500/3dc24310-237c-4c34-9538-9eee48b571f5" alt="Workshop Criativos que Escalam" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <img class="brand-logo" src="assets/logo.png" alt="Workshop Criativos que Escalam">
       <div class="brand-mark" style="display:none">
         <span class="ital">criativos</span>
         <span class="dot" aria-hidden="true"></span>

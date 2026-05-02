@@ -520,7 +520,7 @@
   .cta-stack{display:flex;flex-direction:column;align-items:center;gap:14px}
   .cta-progress{width:min(420px,90%);}
   .cta-progress .bar{height:5px;border-radius:99px;background:rgba(255,255,255,0.12);overflow:hidden;position:relative}
-  .cta-progress .fill{height:100%;background:linear-gradient(90deg,#ff4d00,#ff8a3d);width:63%;border-radius:99px;position:relative}
+  .cta-progress .fill{height:100%;background:linear-gradient(90deg,#ff4d00,#ff8a3d);width:0;border-radius:99px;position:relative}
   .cta-progress .fill::after{content:"";position:absolute;right:-2px;top:50%;transform:translateY(-50%);width:14px;height:14px;border-radius:99px;background:#fff;box-shadow:0 0 12px rgba(255,255,255,0.6),0 0 0 3px rgba(255,77,0,0.25)}
   .cta-progress .label{display:block;text-align:center;margin-top:10px;font-size:11.5px;letter-spacing:0.16em;color:var(--text-dim);font-weight:400}
   
@@ -678,9 +678,9 @@
   .player .followers{font-size:10.5px;color:rgba(255,213,190,0.85);font-weight:400;letter-spacing:0.02em}
   
   /* sections */
-  section{padding:58px 0;position:relative}
+  section{padding:72px 0;position:relative}
   section.tight{padding:44px 0}
-  .section-head{text-align:center;max-width:720px;margin:0 auto 48px}
+  .section-head{text-align:center;max-width:720px;margin:0 auto 56px}
   .section-head h2{font-size:clamp(28px,3vw,40px);color:#fff}
   .section-head h2 .hl{color:var(--orange)}
   .section-head .lead{margin-top:18px;color:var(--text-dim);font-size:15.5px;font-weight:300;line-height:1.55}
@@ -862,7 +862,7 @@
   }
   
   /* conteúdo do workshop / módulos */
-  .modules-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:14px}
+  .modules-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:14px}
   .content-ws .section-head{
     max-width:900px;
   }
@@ -1113,7 +1113,7 @@
   /* faq */
   .faq{padding:96px 0;background:#000}
   .faq .section-head h2 .hl{color:var(--orange)}
-  .faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+  .faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
   .faq-item{
     background:rgba(255,255,255,0.03);border:1px solid var(--line);border-radius:12px;overflow:hidden;
     transition:border-color .2s ease, background .2s ease;
@@ -1153,6 +1153,39 @@
   footer .brand-mark{justify-content:center;margin-bottom:14px;font-size:22px}
   footer .legal{color:var(--text-mute);font-size:12px;line-height:1.6;max-width:600px;margin:0 auto}
   
+  /* === animações de entrada (scroll reveal) === */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.6s ease,transform 0.6s ease}
+  .reveal.visible{opacity:1;transform:translateY(0)}
+  .reveal-left{opacity:0;transform:translateX(-36px);transition:opacity 0.65s ease,transform 0.65s ease}
+  .reveal-right{opacity:0;transform:translateX(36px);transition:opacity 0.65s ease,transform 0.65s ease}
+  .reveal-left.visible,.reveal-right.visible{opacity:1;transform:translate(0)}
+  .stagger-1{transition-delay:0.08s}.stagger-2{transition-delay:0.16s}.stagger-3{transition-delay:0.24s}
+  .stagger-4{transition-delay:0.32s}.stagger-5{transition-delay:0.40s}
+
+  /* pulse no dot do hero */
+  @keyframes pulse-dot{0%,100%{box-shadow:0 0 10px rgba(255,77,0,0.8),0 0 0 0 rgba(255,77,0,0.5)}60%{box-shadow:0 0 10px rgba(255,77,0,0.8),0 0 0 7px rgba(255,77,0,0)}}
+  .date-badge .dot{animation:pulse-dot 2.2s ease-in-out infinite}
+
+  /* progress bar animada no load */
+  @keyframes fill-bar{from{width:0}to{width:63%}}
+  .cta-progress .fill{animation:fill-bar 1.3s cubic-bezier(.4,0,.2,1) forwards;animation-delay:0.5s}
+
+  /* shimmer no btn-cta */
+  .btn-cta{overflow:hidden}
+  .btn-cta::after{content:"";position:absolute;top:0;left:-120%;width:55%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.18),transparent);transform:skewX(-20deg);transition:left 0.5s ease;pointer-events:none}
+  .btn-cta:hover::after{left:150%}
+
+  /* hover em cards testi */
+  .testi{transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+  .testi:hover{transform:translateY(-4px);border-color:rgba(255,255,255,0.18);box-shadow:0 22px 44px -18px rgba(0,0,0,0.65)}
+
+  /* hover em schedule rows */
+  .schedule-row{transition:background .2s ease,border-color .2s ease}
+  .schedule-row:hover{background:rgba(255,255,255,0.07);border-color:rgba(255,77,0,0.25)}
+
+  /* arrow carousel - scale no hover */
+  .dep-arrow:hover{transform:translateY(-50%) scale(1.08);background:rgba(255,77,0,0.18);border-color:rgba(255,77,0,0.55);color:var(--orange)}
+
   /* responsive */
   @media (max-width:880px){
     section{padding:44px 0}
@@ -1380,13 +1413,13 @@
   <section class="path">
     <div class="container">
       <div class="proof-stack">
-          <div class="proof-photos" aria-hidden="true">
+          <div class="proof-photos reveal-left" aria-hidden="true">
             <div class="pic p1"><img src="assets/composicao/1.webp" alt="Composição visual 1" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'ph',textContent:'copy criativo'}))"></div>
             <div class="pic p2"><img src="assets/composicao/2.webp" alt="Composição visual 2" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'ph',textContent:'meme criativo'}))"></div>
             <div class="pic p3"><img src="assets/composicao/3.webp" alt="Composição visual 3" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'ph',textContent:'cartilha'}))"></div>
             <div class="pic p4"><img src="assets/composicao/4.webp" alt="Composição visual 4" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'ph',textContent:'prints de venda'}))"></div>
           </div>
-        <div class="proof-body">
+        <div class="proof-body reveal-right">
           <h2>BidCap, Escala Baiana, <span class="hl">ABO</span>, <span class="hl">CBO</span>, Andrômeda…</h2>
           <p>Quantas vezes você ouviu esses termos na última semana?</p>
           <p><b>A verdade é uma só:</b></p>
@@ -1394,14 +1427,14 @@
         </div>
       </div>
   
-      <div class="callout-2026">
+      <div class="callout-2026 reveal">
         <span class="down-arrow" aria-hidden="true">↓</span>
         <h3 style="font-size: clamp(28px, 3vw, 40px)">Em 2026, o criativo passou a ser <br>o <span class="hl">80/20</span> de qualquer funil!</h3>
         <p class="sub" style="font-size: 18px">Veja na prática: <b>um único ajuste de criativo, triplicou o resultado ↓</b></p>
   
         <div class="before-after-stack">
   
-            <div class="ba-pair">
+            <div class="ba-pair reveal">
               <div class="before-after">
                 <div class="ba-col">
                   <span class="ba-label before">Antes</span>
@@ -1430,7 +1463,7 @@
               </div>
             </div>
   
-            <div class="ba-pair">
+            <div class="ba-pair reveal stagger-1">
               <div class="before-after">
                 <div class="ba-col">
                   <span class="ba-label before">Antes</span>
@@ -1459,7 +1492,7 @@
               </div>
             </div>
   
-            <div class="ba-pair">
+            <div class="ba-pair reveal stagger-2">
               <div class="before-after">
                 <div class="ba-col">
                   <span class="ba-label before">Antes</span>
@@ -1498,13 +1531,13 @@
   <!-- METHODOLOGY -->
   <section class="methodology">
     <div class="container">
-      <div class="section-head" style="text-align: center; margin: -30px auto 42px; max-width: 720px">
+      <div class="section-head reveal" style="text-align: center; margin: -30px auto 42px; max-width: 720px">
         <span class="eyebrow dark">Metodologia</span>
         <h2 class="methodology-title" style="font-size: clamp(28px, 3vw, 40px); max-width: 900px; text-align: center; margin: 18px auto 0"><span class="line">Criativos que <span class="hl">Escalam</span> precisam de 3</span><span class="line"><span class="hl">elementos</span> muito bem alinhados:</span></h2>
         <p class="lead" style="color: rgba(255, 255, 255, 0.82); font-size: 24px">Não adianta nada testar vários criativos <b style="color: #ffffff">se for de qualquer jeito</b>. O que faz um criativo campeão é isso aqui ↓</p>
       </div>
   
-      <div class="venn-wrap">
+      <div class="venn-wrap reveal stagger-1">
         <!-- IMG: diagrama ângulo + formato + estrutura (substituir src) -->
         <img class="venn-img" src="assets/diagrama2.png" alt="Ângulo + Formato + Estrutura" style="max-width:480px;width:100%;height:auto;display:block" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
         <div class="venn" style="display:none">
@@ -1521,39 +1554,39 @@
   <!-- CONTEÚDO DO WORKSHOP -->
   <section class="content-ws">
     <div class="container">
-      <div class="section-head" style="width:min(900px,100%)">
+      <div class="section-head reveal" style="width:min(900px,100%)">
         <span class="eyebrow">Conteúdo do WorkShop</span>
         <h2 style="margin-top:18px; font-size: clamp(28px, 3vw, 40px)"><span class="line">O método de <span class="hl">criação e validação</span> que vai</span><span class="line">finalmente <span class="hl">escalar seu funil</span></span></h2>
         <p class="lead" style="font-size: 21px; color: rgb(187, 187, 187)">Em 2 dias, ao vivo e online, eu vou criar junto com você, anúncios no padrão ouro para escalar +6 dígitos por mês ↓</p>
       </div>
   
       <div class="modules-grid">
-        <div class="module">
+        <div class="module reveal">
           <span class="num">01</span>
           <h3><span class="hl">A estrutura de ouro</span> para criativos que convertem público frio</h3>
           <ul class="m-desc"><li>Variáveis de um gancho</li><li>Forças de conversão</li><li>Os 9 tipos de prova</li><li>CTA com valor embutido</li></ul>
         </div>
-        <div class="module">
+        <div class="module reveal stagger-1">
           <span class="num">02</span>
           <h3>Como encontrar os <span class="hl">melhores formatos orgânicos</span> para seu público e produto</h3>
           <ul class="m-desc"><li>Pesquisa com o Claude</li><li>Perfil espião</li><li>Os formatos coringa</li></ul>
         </div>
-        <div class="module">
+        <div class="module reveal stagger-2">
           <span class="num">03</span>
           <h3>O método de <span class="hl">3 etapas</span> para fazer <span class="hl">criativos infinitos</span></h3>
           <ul class="m-desc"><li>Interseções estratégicas</li><li>Variações por etapa</li><li>Adaptação criativa</li></ul>
         </div>
-        <div class="module">
+        <div class="module reveal stagger-3">
           <span class="num">04</span>
           <h3>Encontrando <span class="hl">criativos escalados</span> e modelando do <span class="hl">jeito certo</span>.</h3>
           <ul class="m-desc"><li>A essência da copy</li><li>Filtros de escalabilidade</li><li>Skill pessoal do Claude</li></ul>
         </div>
-        <div class="module">
+        <div class="module reveal stagger-4">
           <span class="num">05</span>
           <h3><span class="hl">Teste de criativo:</span> O que testar e <span class="hl">como analisar</span>.</h3>
           <ul class="m-desc"><li>O fluxograma de testes</li><li>Campanhas de teste em 2026</li><li>Análise com IA integrada</li></ul>
         </div>
-        <div class="module">
+        <div class="module reveal stagger-5">
           <span class="num">06</span>
           <h3>Debriefing de criativos que venderam <span class="hl">7 dígitos</span></h3>
           <ul class="m-desc"><li>Resultados reais</li><li>Extraindo as FDC</li><li>Swipe-file secreto</li></ul>
@@ -1567,7 +1600,7 @@
   <!-- DEPOIMENTOS (RESULTADO) -->
   <section class="testimonials" id="resultado">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head reveal">
         <span class="eyebrow">Resultado</span>
         <h2 style="margin-top:18px">
           <span class="line">Esse é o <span class="hl">resultado</span></span>
@@ -1575,7 +1608,7 @@
         </h2>
       </div>
   
-      <div class="dep-carousel" id="depCarousel">
+      <div class="dep-carousel reveal stagger-1" id="depCarousel">
         <button class="dep-arrow prev" type="button" aria-label="Anterior">‹</button>
         <div class="dep-viewport">
           <div class="dep-track">
@@ -1655,11 +1688,11 @@
   <!-- IDENTIFICAÇÃO / SINAIS -->
   <section class="signs">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head reveal">
         <h2>Sinais de que você deveria<br><span class="hl">participar</span> do WorkShop</h2>
       </div>
-  
-      <div class="signs-circle">
+
+      <div class="signs-circle reveal stagger-1">
         <img src="assets/diagrama.png" alt="Sinais de que você deveria participar do Workshop" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
         <div style="display:none">
           <div class="sign s1">Não consegue ter<br>ROI maior que 2x</div>
@@ -1678,13 +1711,13 @@
   <!-- INGRESSO / PREÇO -->
   <section class="ticket-section" id="ingresso">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head reveal">
         <span class="eyebrow">Ingresso</span>
         <h2 style="margin-top:18px">Eu escrevi mais de <span class="hl">2 mil anúncios</span><br>e escalei mais de <span class="hl">20 milhões</span> para<br>aprender isso…</h2>
         <p class="lead">E agora você pode receber tudo mastigadinho por um valor <em>RI-DÍ-CU-LO</em> ↓</p>
       </div>
   
-      <div class="ticket">
+      <div class="ticket reveal stagger-1">
         <div class="ticket-head">
           <div style="flex:1;min-width:0">
             <img class="ticket-brand-logo" src="assets/logo.png" alt="Workshop Criativos que Escalam" onerror="this.style.display='none'">
@@ -1740,10 +1773,10 @@
         <p class="sub">(válido para os dois dias)</p>
       </div>
       <div class="schedule-list">
-        <div class="schedule-row"><span class="label">Início</span><span class="time">9h30</span></div>
-        <div class="schedule-row"><span class="label">Almoço</span><span class="time">12h30</span></div>
-        <div class="schedule-row"><span class="label">Retorno</span><span class="time">14h00</span></div>
-        <div class="schedule-row"><span class="label">Encerramento</span><span class="time">17h30</span></div>
+        <div class="schedule-row reveal"><span class="label">Início</span><span class="time">9h30</span></div>
+        <div class="schedule-row reveal stagger-1"><span class="label">Almoço</span><span class="time">12h30</span></div>
+        <div class="schedule-row reveal stagger-2"><span class="label">Retorno</span><span class="time">14h00</span></div>
+        <div class="schedule-row reveal stagger-3"><span class="label">Encerramento</span><span class="time">17h30</span></div>
       </div>
       <p class="schedule-foot">*Considere encerrar mais tarde, caso os participantes peçam para nos aprofundarmos em algum ponto. Porém, o conteúdo combinado será entregue dentro do horário programado.</p>
     </div>
@@ -1752,8 +1785,8 @@
   <!-- GARANTIA -->
   <section class="guarantee">
     <div class="container" style="text-align:center">
-      <span class="stamp">Garantia</span>
-      <div class="section-head">
+      <span class="stamp reveal">Garantia</span>
+      <div class="section-head reveal stagger-1">
         <h2>Garantia de <span class="hl">Satisfação?</span><br><span class="wh">Lógico que</span> <span class="hl">tem!</span></h2>
       </div>
       <p class="body">Você pode assistir, baixar todos os materiais, aplicar, vender, escalar, fazer o caralho a quatro e se você disser que <b>não valeu a pena ficar um dia em aula comigo…</b></p>
@@ -1771,10 +1804,10 @@
   <section class="bio" id="bio">
     <div class="container">
       <div class="bio-grid">
-        <div class="bio-photo">
+        <div class="bio-photo reveal-left">
           <img src="assets/profile.jpg" alt="Guilherme" style="width:100%;height:100%;object-fit:cover;display:block">
         </div>
-        <div class="bio-content">
+        <div class="bio-content reveal-right">
           <h3>Ainda não me conhece?<br><span class="hl">Tudo bem.</span><br>Pouca gente me conhece <span class="hl">(ainda).</span></h3>
   
           <p>Meu nome é <b>Guilherme</b>.</p>
@@ -1796,12 +1829,12 @@
   <!-- FAQ -->
   <section class="faq" id="faq">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head reveal">
         <span class="eyebrow">Dúvidas?</span>
         <h2 style="margin-top:18px">Tudo sobre o <span class="hl">Workshop</span></h2>
       </div>
   
-      <div class="faq-list">
+      <div class="faq-list reveal stagger-1">
         <details class="faq-item" open="">
           <summary class="faq-q">Vai ficar gravado?<span class="ico">+</span></summary>
           <div class="faq-a">Sim, mas a gravação <b>não está inclusa</b> no ingresso. Você pode adquirir a gravação em formato de aulas separadamente na hora da compra.</div>
@@ -1886,5 +1919,18 @@
   
   
   
+  <script>
+  // Scroll reveal — IntersectionObserver
+  (function(){
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.10 });
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(function(el){
+      obs.observe(el);
+    });
+  })();
+  </script>
   </body></html>
 

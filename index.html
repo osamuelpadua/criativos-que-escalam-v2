@@ -1245,17 +1245,18 @@
     .ticket{padding:28px 22px}
     .ticket-price .price{font-size:54px}
     .ticket-price .price small{font-size:32px}
+    .path .container{padding:0 8px}
     .before-after,
     .ba-details{
-      --ba-frame-width:150px;
-      grid-template-columns:var(--ba-frame-width) 24px var(--ba-frame-width);
+      grid-template-columns:calc((100% - 14px) / 2) 14px calc((100% - 14px) / 2);
     }
+    .ba-pair{width:100%}
     .before-after-stack > .ba-pair + .ba-pair{
-      padding-top:34px;
+      padding-top:24px;
     }
-    .ba-frame{width:150px;border-radius:16px}
+    .ba-frame{width:100%;border-radius:14px}
     .phone{width:120px;height:210px}
-    .ba-arrow{font-size:20px;margin-top:96px}
+    .ba-arrow{font-size:14px;margin-top:80px}
     .ba-detail-col{gap:10px}
     .ba-meta-col{flex-direction:column;gap:4px;font-size:12px}
     .ba-meta-col .v{font-size:13px}

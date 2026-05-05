@@ -689,7 +689,7 @@
   section.tight{padding:44px 0}
   .section-head{text-align:center;max-width:720px;margin:0 auto 56px}
   .section-head h2{font-size:clamp(28px,3vw,40px);color:#fff}
-  .section-head h2 .hl{color:var(--orange)}
+  .section-head h2 .hl{color:inherit}
   .section-head .lead{margin-top:18px;color:var(--text-dim);font-size:15.5px;font-weight:300;line-height:1.55}
   .section-head .lead b{color:#fff;font-weight:400}
   
@@ -727,7 +727,7 @@
   .pic.p2 .ph{background:linear-gradient(160deg,#2a1408,#0a0500)}
   .pic.p3 .ph{background:linear-gradient(180deg,#1a0a04,#000);color:rgba(255,255,255,0.5)}
   
-  .proof-body h2{font-size:clamp(28px,3vw,40px);color:#fff}
+  .proof-body h2{font-size:clamp(28px,3vw,40px);color:var(--orange)}
   .proof-body p{color:var(--text-dim);margin-top:18px;font-size:15.5px;line-height:1.6}
   .proof-body p b{color:#fff;font-weight:500}
   .proof-body .punch{color:#fff;font-family:'Montserrat',sans-serif;font-weight:600;font-size:18px;margin-top:24px;line-height:1.35}
@@ -740,7 +740,7 @@
     box-shadow:0 8px 30px -8px rgba(255,77,0,0.7), inset 0 1px 0 rgba(255,255,255,0.25);
     margin-bottom:30px;
   }
-  .callout-2026 h3{font-size:clamp(24px,3vw,40px);color:#fff}
+  .callout-2026 h3{font-size:clamp(24px,3vw,40px);color:var(--orange)}
   .callout-2026 .sub{margin-top:14px;color:var(--text-dim);font-size:14.5px}
   .callout-2026 .sub b{color:#fff;font-weight:500}
   
@@ -839,9 +839,9 @@
   }
   .methodology .eyebrow.dark{color:rgba(255,255,255,0.86);background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.14)}
   .methodology .section-head{margin-bottom:42px}
-  .methodology h2{color:#fff;font-size:clamp(28px,3vw,40px)}
+  .methodology h2{color:var(--orange);font-size:clamp(28px,3vw,40px)}
   .methodology-title .line{display:block}
-  .methodology h2 .hl{text-shadow:0 1px 0 rgba(0,0,0,0.32),0 0 16px rgba(255,77,0,0.12)}
+  .methodology h2 .hl{text-shadow:none}
   .methodology .lead{color:rgba(255,255,255,0.76);font-size:15px}
   .methodology .lead b{color:#fff}
   .venn-wrap{display:flex;justify-content:center;align-items:center;margin:32px 0 24px}
@@ -873,6 +873,7 @@
   .content-ws .section-head{
     max-width:900px;
   }
+  .content-ws .section-head h2{color:var(--orange)}
   .content-ws .section-head h2 .line{
     display:block;
     white-space:nowrap;
@@ -893,7 +894,8 @@
   }
   .module:hover{transform:translateY(-3px);border-color:rgba(255,77,0,0.45)}
   .module .num{font-family:'Montserrat',sans-serif;font-size:11px;color:var(--orange);font-weight:500;letter-spacing:0.1em}
-  .module h3{font-size:19px;font-weight:600;line-height:1.2}
+  .module h3{font-size:19px;font-weight:600;line-height:1.2;color:#fff}
+  .module h3 .hl{color:inherit}
   .module .m-desc{margin-top:12px;font-size:13.5px;line-height:1.55;color:rgba(255,255,255,0.6);font-weight:300;letter-spacing:0.005em;list-style:none;padding:0;display:flex;flex-direction:column;gap:6px}
   .module .m-desc li{display:flex;align-items:flex-start;gap:10px;padding-left:0}
   .module .m-desc li::before{content:"";flex-shrink:0;width:5px;height:5px;border-radius:99px;background:var(--orange);margin-top:8px;box-shadow:0 0 8px rgba(255,77,0,0.5)}
@@ -904,6 +906,7 @@
   /* identificação / sinais */
   .signs{position:relative;padding:96px 0}
   .signs .section-head h2{color:#fff}
+  .signs .section-head h2 .hl{color:inherit}
   .signs-circle{
     position:relative;width:640px;max-width:100%;margin:36px auto 0;
   }
@@ -948,7 +951,8 @@
   
   /* ingresso / preço */
   .ticket-section{background:#000;padding:58px 0}
-  .ticket-section .section-head h2{color:#fff}
+  .ticket-section .section-head h2{color:var(--orange)}
+  .ticket-section .section-head h2 .hl{color:inherit}
   .ticket-section .section-head .lead em{color:var(--orange);font-style:normal;font-weight:500;letter-spacing:0.06em}
   .ticket{
     max-width:480px;margin:32px auto 0;background:linear-gradient(180deg,#0c0c0c,#050505);
@@ -999,7 +1003,8 @@
   /* cronograma */
   .schedule{padding:80px 0}
   .schedule .head{text-align:center;margin-bottom:32px}
-  .schedule .head h3{color:#fff;font-size:clamp(22px,2.6vw,40px);letter-spacing:0.04em}
+  .schedule .head h3{color:var(--orange);font-size:clamp(22px,2.6vw,40px);letter-spacing:0.04em}
+  .schedule .head h3 .hl{color:inherit}
   .schedule .head .sub{color:var(--text-dim);font-size:13px;margin-top:8px}
   .schedule-list{max-width:600px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
   .schedule-row{
@@ -1017,7 +1022,8 @@
     border-top:1px solid var(--line);border-bottom:1px solid var(--line);
   }
   .guarantee .section-head{margin-bottom:24px}
-  .guarantee .section-head h2 .hl{color:var(--orange)}
+  .guarantee .section-head h2{color:#fff}
+  .guarantee .section-head h2 .hl{color:inherit}
   .guarantee .body{text-align:center;color:var(--text-dim);font-size:15.5px;line-height:1.7;max-width:680px;margin:0 auto 32px}
   .guarantee .body b{color:#fff;font-weight:500}
   .guarantee .stamp{
@@ -1033,7 +1039,7 @@
   
   /* depoimentos */
   .testimonials{padding:96px 0}
-  .testimonials .section-head h2 .hl{color:var(--orange)}
+  .testimonials .section-head h2 .hl{color:inherit}
   .testimonials .section-head{
     max-width:980px;
   }
@@ -1041,7 +1047,7 @@
     font-size:clamp(30px,3.2vw,40px);
     line-height:1.02;
     letter-spacing:-0.045em;
-    color:#fff;
+    color:var(--orange);
     text-align:center;
   }
   .testimonials .section-head h2 .line{
@@ -1111,8 +1117,9 @@
     text-align:center;padding:20px;
   }
   .bio-photo img{display:block;width:100%;height:100%;object-fit:cover}
-  .bio-content h3{font-size:clamp(22px,2.6vw,30px);font-weight:600}
-  .bio-content h3 .hl{color:var(--orange);font-style:italic;font-weight:500}
+  .bio-content h3{font-size:clamp(22px,2.6vw,30px);font-weight:600;color:#fff}
+  .bio-content h3 .hl{color:inherit;font-style:normal;font-weight:inherit}
+  .bio-content h3 .soft{font-style:italic;font-weight:400}
   .bio-content .sub{color:#fff;font-family:'Montserrat',sans-serif;font-weight:600;font-size:18px;margin-top:6px}
   .bio-content p{color:var(--text-dim);font-size:15px;line-height:1.65;margin-top:18px;font-weight:300}
   .bio-content p b{color:#fff;font-weight:500}
@@ -1121,7 +1128,8 @@
   
   /* faq */
   .faq{padding:96px 0;background:#000}
-  .faq .section-head h2 .hl{color:var(--orange)}
+  .faq .section-head h2{color:#fff}
+  .faq .section-head h2 .hl{color:inherit}
   .faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
   .faq-item{
     background:rgba(255,255,255,0.03);border:1px solid var(--line);border-radius:12px;overflow:hidden;
@@ -1231,11 +1239,13 @@
     .hero .container{padding:0 12px;height:auto}
     .hero-stage{gap:8px}
     .hero-inner{width:100%;max-width:100%;padding:34px 0 48px;align-items:stretch}
-    .brand-logo{width:176px;margin-bottom:24px}
+    .brand-logo{width:176px;margin-bottom:18px}
     .date-badge{align-self:center;width:max-content;max-width:100%;font-size:11px;gap:10px;padding:9px 14px;white-space:nowrap}
-    h1.headline{margin-top:22px;font-size:clamp(26px,10vw,30px);max-width:100%;line-height:0.98;letter-spacing:-0.045em;text-wrap:pretty}
+    h1.headline{margin-top:18px;font-size:clamp(26px,10vw,30px);max-width:100%;line-height:0.98;letter-spacing:-0.045em;text-wrap:pretty}
     h1.headline .line{display:inline;white-space:normal}
-    .subline{margin-top:22px;font-size:clamp(16px,4.6vw,18px);line-height:1.5}
+    .subline{margin-top:16px;font-size:clamp(16px,4.6vw,18px);line-height:1.5}
+    .hero-cta{margin-top:30px}
+    .hero .cta-stack{gap:14px}
     .hero .btn-cta{width:100%;min-width:0;padding:17px 20px}
     .hero .cta-progress{width:100%}
     .hero .cta-progress .label{font-size:11.5px;letter-spacing:0.18em}
@@ -1444,7 +1454,7 @@
             <div class="pic p4"><img src="assets/composicao/4.webp" alt="Composição visual 4" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'ph',textContent:'prints de venda'}))"></div>
           </div>
         <div class="proof-body reveal-right">
-          <h2>BidCap, Escala Baiana, <span class="hl">ABO</span>, <span class="hl">CBO</span>, Andrômeda…</h2>
+          <h2>BidCap, Escala Baiana, ABO, CBO, Andrômeda…</h2>
           <p>Quantas vezes você ouviu esses termos na última semana?</p>
           <p><b>A verdade é uma só:</b></p>
           <p class="punch">Não importa qual estrutura você usa... sem criativos escaláveis nada vai funcionar!</p>
@@ -1557,7 +1567,7 @@
     <div class="container">
       <div class="section-head reveal" style="text-align: center; margin: -30px auto 42px; max-width: 720px">
         <span class="eyebrow dark">Metodologia</span>
-        <h2 class="methodology-title" style="font-size: clamp(28px, 3vw, 40px); max-width: 900px; text-align: center; margin: 18px auto 0"><span class="line">Criativos que <span class="hl">Escalam</span> precisam de 3</span><span class="line"><span class="hl">elementos</span> muito bem alinhados:</span></h2>
+        <h2 class="methodology-title" style="font-size: clamp(28px, 3vw, 40px); max-width: 900px; text-align: center; margin: 18px auto 0"><span class="line">Criativos que escalam precisam de</span><span class="line"><span class="hl">3 elementos</span> muito bem alinhados:</span></h2>
         <p class="lead" style="color: rgba(255, 255, 255, 0.82); font-size: 24px">Não adianta nada testar vários criativos <b style="color: #ffffff">se for de qualquer jeito</b>. O que faz um criativo campeão é isso aqui ↓</p>
       </div>
   
@@ -1580,7 +1590,7 @@
     <div class="container">
       <div class="section-head reveal" style="width:min(900px,100%)">
         <span class="eyebrow">Conteúdo do WorkShop</span>
-        <h2 style="margin-top:18px; font-size: clamp(28px, 3vw, 40px)"><span class="line">O método de <span class="hl">criação e validação</span> que vai</span><span class="line">finalmente <span class="hl">escalar seu funil</span></span></h2>
+        <h2 style="margin-top:18px; font-size: clamp(28px, 3vw, 40px)"><span class="line">O método de <span class="hl">criação e validação</span> que vai</span><span class="line">finalmente escalar seu funil</span></h2>
         <p class="lead" style="font-size: 21px; color: rgb(187, 187, 187)">Em 2 dias, ao vivo e online, eu vou criar junto com você, anúncios no padrão ouro para escalar +6 dígitos por mês ↓</p>
       </div>
   
@@ -1597,17 +1607,17 @@
         </div>
         <div class="module reveal stagger-2">
           <span class="num">03</span>
-          <h3>O método de <span class="hl">3 etapas</span> para fazer <span class="hl">criativos infinitos</span></h3>
+          <h3>O método de 3 etapas para fazer <span class="hl">criativos infinitos</span></h3>
           <ul class="m-desc"><li>Interseções estratégicas</li><li>Variações por etapa</li><li>Adaptação criativa</li></ul>
         </div>
         <div class="module reveal stagger-3">
           <span class="num">04</span>
-          <h3>Encontrando <span class="hl">criativos escalados</span> e modelando do <span class="hl">jeito certo</span>.</h3>
+          <h3>Encontrando <span class="hl">criativos escalados</span> e modelando do jeito certo.</h3>
           <ul class="m-desc"><li>A essência da copy</li><li>Filtros de escalabilidade</li><li>Skill pessoal do Claude</li></ul>
         </div>
         <div class="module reveal stagger-4">
           <span class="num">05</span>
-          <h3><span class="hl">Teste de criativo:</span> O que testar e <span class="hl">como analisar</span>.</h3>
+          <h3>Teste de criativo: o que testar e <span class="hl">como analisar</span>.</h3>
           <ul class="m-desc"><li>O fluxograma de testes</li><li>Campanhas de teste em 2026</li><li>Análise com IA integrada</li></ul>
         </div>
         <div class="module reveal stagger-5">
@@ -1628,7 +1638,7 @@
         <span class="eyebrow">Resultado</span>
         <h2 style="margin-top:18px">
           <span class="line">Esse é o <span class="hl">resultado</span></span>
-          <span class="line">de quem <span class="hl">acessa</span> e aplica o <span class="hl">método</span></span>
+          <span class="line">de quem acessa e aplica o método</span>
         </h2>
       </div>
   
@@ -1762,7 +1772,7 @@
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow">Ingresso</span>
-        <h2 style="margin-top:18px">Eu escrevi mais de <span class="hl">2 mil anúncios</span> e escalei mais de <span class="hl">20 milhões</span> para aprender isso…</h2>
+        <h2 style="margin-top:18px">Eu escrevi mais de 2 mil anúncios e escalei mais de <span class="hl">20 milhões</span> para aprender isso…</h2>
         <p class="lead">E agora você pode receber tudo mastigadinho por um valor <em>RI-DÍ-CU-LO</em> ↓</p>
       </div>
   
@@ -1836,7 +1846,7 @@
     <div class="container" style="text-align:center">
       <span class="stamp reveal">Garantia</span>
       <div class="section-head reveal stagger-1">
-        <h2>Garantia de <span class="hl">Satisfação?</span><br><span class="wh">Lógico que</span> <span class="hl">tem!</span></h2>
+        <h2>Garantia de satisfação?<br><span class="wh">Lógico que tem!</span></h2>
       </div>
       <p class="body">Você pode assistir, baixar todos os materiais, aplicar, vender, escalar, fazer o caralho a quatro e se você disser que <b>não valeu a pena ficar um dia em aula comigo…</b></p>
       <p class="punch">…eu devolvo <em>TUDO</em> que você investiu <span style="color:var(--text-mute);font-size:15px;font-weight:300">(23 conto kkkk).</span></p>
@@ -1857,7 +1867,7 @@
           <img src="assets/profile.jpg" alt="Guilherme" style="width:100%;height:100%;object-fit:cover;display:block">
         </div>
         <div class="bio-content">
-          <h3>Ainda não me conhece?<br><span class="hl">Tudo bem.</span><br>Pouca gente me conhece <span class="hl">(ainda).</span></h3>
+          <h3>Ainda não me conhece?<br><span class="soft">Tudo bem.</span><br>Pouca gente me conhece <span class="soft">(ainda).</span></h3>
   
           <p>Meu nome é <b>Guilherme</b>.</p>
           <p>Já fazem 6 anos que eu escrevo umas copy's que vendem bastante <em>(bastante mesmo).</em></p>
@@ -1880,7 +1890,7 @@
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow">Dúvidas?</span>
-        <h2 style="margin-top:18px">Tudo sobre o <span class="hl">Workshop</span></h2>
+        <h2 style="margin-top:18px">Tudo sobre o Workshop</h2>
       </div>
   
       <div class="faq-list reveal stagger-1">

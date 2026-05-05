@@ -610,6 +610,7 @@
     background:rgba(69,31,14,0.52);border:1px solid rgba(255,77,0,0.34);
     color:#f0c9af;font-size:12px;font-weight:500;letter-spacing:0.01em;
   }
+  .date-badge .item{white-space:nowrap}
   .date-badge .dot{width:8px;height:8px;background:var(--orange);border-radius:99px;box-shadow:0 0 10px rgba(255,77,0,0.8)}
   .date-badge .sep{opacity:.45}
 
@@ -1227,12 +1228,13 @@
     section{padding:36px 0}
     .container{padding:0 16px}
     .hero{padding:0;height:auto;max-height:none}
-    .hero .container{padding:0 16px;height:auto}
+    .hero .container{padding:0 12px;height:auto}
     .hero-stage{gap:8px}
     .hero-inner{width:100%;max-width:100%;padding:34px 0 48px;align-items:stretch}
     .brand-logo{width:176px;margin-bottom:24px}
-    .date-badge{font-size:12px;gap:14px;padding:9px 18px}
-    h1.headline{margin-top:22px;font-size:clamp(26px,10vw,30px);max-width:100%;line-height:0.98}
+    .date-badge{align-self:center;width:max-content;max-width:100%;font-size:11px;gap:10px;padding:9px 14px;white-space:nowrap}
+    h1.headline{margin-top:22px;font-size:clamp(26px,10vw,30px);max-width:100%;line-height:0.98;letter-spacing:-0.045em;text-wrap:pretty}
+    h1.headline .line{display:inline;white-space:normal}
     .subline{margin-top:22px;font-size:clamp(16px,4.6vw,18px);line-height:1.5}
     .hero .btn-cta{width:100%;min-width:0;padding:17px 20px}
     .hero .cta-progress{width:100%}
@@ -1282,8 +1284,11 @@
 
           <span class="date-badge">
             <span class="dot"></span>
-            23 e 24 de maio
-            <span class="sep">·</span> 9h30 às 17h <span class="sep">·</span> Online e ao vivo
+            <span class="item">23 e 24 de maio</span>
+            <span class="sep">·</span>
+            <span class="item">9h30 às 17h</span>
+            <span class="sep">·</span>
+            <span class="item">Online e ao vivo</span>
           </span>
 
           <h1 class="headline">

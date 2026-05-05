@@ -1165,6 +1165,91 @@
   }
   .btn-whats:hover{transform:translateY(-1px);background:#2bdb6d}
   
+  /* checkout modal */
+  .checkout-modal{
+    position:fixed;inset:0;z-index:120;
+    display:none;align-items:center;justify-content:center;
+    padding:18px;
+  }
+  .checkout-modal.open{display:flex}
+  .checkout-modal__backdrop{
+    position:absolute;inset:0;
+    background:rgba(0,0,0,0.72);
+    backdrop-filter:blur(8px);
+  }
+  .checkout-modal__panel{
+    position:relative;z-index:1;
+    width:min(100%,420px);
+    border-radius:28px;
+    border:1px solid rgba(255,255,255,0.1);
+    background:
+      radial-gradient(circle at top center, rgba(255,77,0,0.18), transparent 38%),
+      linear-gradient(180deg,#130603 0%, #080808 55%, #040404 100%);
+    box-shadow:0 32px 80px -28px rgba(0,0,0,0.82);
+    padding:24px 22px 22px;
+  }
+  .checkout-modal__close{
+    position:absolute;top:14px;right:14px;
+    width:38px;height:38px;border:none;border-radius:99px;
+    background:rgba(255,255,255,0.08);color:#fff;
+    display:inline-flex;align-items:center;justify-content:center;
+    font-size:22px;cursor:pointer;transition:background .2s ease, transform .2s ease;
+  }
+  .checkout-modal__close:hover{background:rgba(255,77,0,0.18);transform:translateY(-1px)}
+  .checkout-modal__head{
+    display:grid;grid-template-columns:minmax(0,1fr) auto;
+    gap:18px;align-items:start;padding-right:44px;
+  }
+  .checkout-modal__brand img{width:186px;max-width:100%;display:block}
+  .checkout-modal__meta{text-align:right}
+  .checkout-modal__date{
+    font-family:'Montserrat',sans-serif;
+    color:#fff;font-weight:700;font-size:16px;line-height:1.05;
+  }
+  .checkout-modal__time{margin-top:6px;color:rgba(255,255,255,0.78);font-size:13px;line-height:1.25}
+  .checkout-modal__pill{
+    display:inline-flex;margin-top:10px;
+    padding:5px 9px;border-radius:999px;
+    background:rgba(255,77,0,0.12);border:1px solid rgba(255,77,0,0.34);
+    color:#ffb18a;font-size:10px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;
+  }
+  .checkout-modal__title{
+    margin-top:26px;color:#fff;
+    font-size:clamp(30px,3vw,42px);
+    line-height:1.02;letter-spacing:-0.04em;
+  }
+  .checkout-modal__title .hl{color:var(--orange)}
+  .checkout-form{margin-top:22px;display:flex;flex-direction:column;gap:14px}
+  .checkout-field{
+    width:100%;height:58px;padding:0 18px;
+    border-radius:16px;border:1px solid rgba(255,255,255,0.12);
+    background:rgba(255,255,255,0.04);color:#fff;
+    font:inherit;font-size:17px;outline:none;
+    transition:border-color .2s ease, box-shadow .2s ease, background .2s ease;
+  }
+  .checkout-field::placeholder{color:rgba(255,255,255,0.34)}
+  .checkout-field:focus{
+    border-color:rgba(255,77,0,0.55);
+    box-shadow:0 0 0 4px rgba(255,77,0,0.12);
+    background:rgba(255,255,255,0.055);
+  }
+  .checkout-submit{
+    margin-top:4px;width:100%;
+    min-height:64px;padding:16px 22px;border:none;border-radius:18px;
+    background:linear-gradient(135deg,#ff5f0f 0%, #ff7a2f 55%, #ffa67f 100%);
+    color:#fff;font-family:'Montserrat',sans-serif;font-size:17px;font-weight:700;
+    letter-spacing:-0.02em;cursor:pointer;
+    box-shadow:0 22px 50px -18px rgba(255,77,0,0.65);
+    transition:transform .2s ease, box-shadow .2s ease, filter .2s ease;
+  }
+  .checkout-submit:hover{transform:translateY(-1px);filter:brightness(1.03)}
+  .checkout-submit:disabled{cursor:wait;opacity:.78;transform:none}
+  .checkout-modal__feedback{
+    min-height:18px;margin-top:10px;
+    color:#ffb18a;font-size:12px;line-height:1.45;
+  }
+  .checkout-modal__feedback[data-state="success"]{color:#9efb74}
+  
   /* footer */
   footer{padding:60px 0 50px;text-align:center;border-top:1px solid var(--line)}
   footer .brand-mark{justify-content:center;margin-bottom:14px;font-size:22px}
@@ -1278,6 +1363,17 @@
     .circle{width:140px;height:140px;font-size:14px}
     .methodology-title{font-size:clamp(26px,7vw,36px) !important;max-width:100% !important}
     .methodology .lead{font-size:17px !important}
+    .checkout-modal{padding:10px}
+    .checkout-modal__panel{width:100%;border-radius:24px;padding:20px 18px 18px}
+    .checkout-modal__head{gap:12px;padding-right:40px}
+    .checkout-modal__brand img{width:162px}
+    .checkout-modal__date{font-size:14px}
+    .checkout-modal__time{font-size:12px}
+    .checkout-modal__pill{font-size:9px;padding:4px 8px}
+    .checkout-modal__title{margin-top:22px;font-size:clamp(24px,9vw,34px)}
+    .checkout-form{margin-top:18px;gap:12px}
+    .checkout-field{height:54px;padding:0 16px;font-size:16px;border-radius:14px}
+    .checkout-submit{min-height:58px;font-size:16px;border-radius:16px}
   }
   </style>
   </head>
@@ -1314,7 +1410,7 @@
 
           <div class="hero-cta">
             <div class="cta-stack">
-              <a class="btn-cta" href="#ingresso">
+              <a class="btn-cta" href="#checkout" data-open-checkout>
                 Garantir ingresso · Lote 02
                 <span class="arrow">→</span>
               </a>
@@ -1808,7 +1904,7 @@
   
         <div class="ticket-cta">
           <div class="cta-stack">
-            <a class="btn-cta" href="#" style="width:100%">
+            <a class="btn-cta" href="#checkout" data-open-checkout style="width:100%">
               Garantir ingresso · Lote 02
               <span class="arrow">→</span>
             </a>
@@ -1851,7 +1947,7 @@
       <p class="body">Você pode assistir, baixar todos os materiais, aplicar, vender, escalar, fazer o caralho a quatro e se você disser que <b>não valeu a pena ficar um dia em aula comigo…</b></p>
       <p class="punch">…eu devolvo <em>TUDO</em> que você investiu <span style="color:var(--text-mute);font-size:15px;font-weight:300">(23 conto kkkk).</span></p>
       <div class="cta-stack">
-        <a class="btn-cta" href="#ingresso">
+        <a class="btn-cta" href="#checkout" data-open-checkout>
           Garantir ingresso · Lote 02
           <span class="arrow">→</span>
         </a>
@@ -1876,7 +1972,7 @@
           <p>Depois que descobri que o anúncio é o 80/20 de qualquer funil, foquei em ficar craque nisso.</p>
           <p><b>E agora quero te ensinar também.</b></p>
   
-          <a class="btn-cta" href="#ingresso">
+          <a class="btn-cta" href="#checkout" data-open-checkout>
             Garantir ingresso · Lote 02
             <span class="arrow">→</span>
           </a>
@@ -1940,6 +2036,30 @@
     </div>
   </section>
   
+  <div class="checkout-modal" id="checkoutModal" aria-hidden="true">
+    <div class="checkout-modal__backdrop" data-close-checkout></div>
+    <div class="checkout-modal__panel" role="dialog" aria-modal="true" aria-labelledby="checkoutModalTitle">
+      <button class="checkout-modal__close" type="button" aria-label="Fechar" data-close-checkout>×</button>
+      <div class="checkout-modal__head">
+        <div class="checkout-modal__brand">
+          <img src="assets/logo.png" alt="Workshop Criativos que Escalam">
+        </div>
+        <div class="checkout-modal__meta">
+          <div class="checkout-modal__date">23 e 24/05</div>
+          <div class="checkout-modal__time">9h30 às 17h</div>
+          <span class="checkout-modal__pill">Online ao vivo</span>
+        </div>
+      </div>
+      <h2 class="checkout-modal__title" id="checkoutModalTitle">Garantir minha vaga por <span class="hl">R$ 23</span></h2>
+      <form class="checkout-form" id="checkoutForm" novalidate>
+        <input class="checkout-field" id="checkoutEmail" name="email" type="email" inputmode="email" autocomplete="email" placeholder="Seu melhor e-mail" required>
+        <input class="checkout-field" id="checkoutWhatsapp" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="WhatsApp com DDD" required>
+        <button class="checkout-submit" id="checkoutSubmit" type="submit">IR PARA O CHECKOUT!</button>
+        <p class="checkout-modal__feedback" id="checkoutFeedback" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+  
   <!-- FOOTER -->
   <footer>
     <div class="container">
@@ -1955,6 +2075,177 @@
   </footer>
   
   <script>
+  window.CQE_CHECKOUT_CONFIG = {
+    supabaseUrl: 'https://wtifqicsvtjtlozntubp.supabase.co',
+    supabaseAnonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind0aWZxaWNzdnRqdGxvem50dWJwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc1Mjg2MzQsImV4cCI6MjA5MzEwNDYzNH0.Q8VclctSDM2cMjfMJSRlE3h0X-LFZMnordt5b3Z7LzM',
+    checkoutUrl: '',
+    table: 'leads2'
+  };
+  </script>
+  
+  <script>
+  (function(){
+    var config = window.CQE_CHECKOUT_CONFIG || {};
+    var modal = document.getElementById('checkoutModal');
+    var form = document.getElementById('checkoutForm');
+    if (!modal || !form) return;
+  
+    var emailInput = document.getElementById('checkoutEmail');
+    var whatsappInput = document.getElementById('checkoutWhatsapp');
+    var submitButton = document.getElementById('checkoutSubmit');
+    var feedback = document.getElementById('checkoutFeedback');
+    var triggers = Array.prototype.slice.call(document.querySelectorAll('[data-open-checkout]'));
+    var closeButtons = Array.prototype.slice.call(document.querySelectorAll('[data-close-checkout]'));
+    var lastTrigger = null;
+    var activeCtaLabel = '';
+  
+    function setFeedback(message, state) {
+      feedback.textContent = message || '';
+      if (state) feedback.setAttribute('data-state', state);
+      else feedback.removeAttribute('data-state');
+    }
+  
+    function digitsOnly(value) {
+      return (value || '').replace(/\D/g, '').slice(0, 13);
+    }
+  
+    function formatWhatsapp(value) {
+      var digits = digitsOnly(value);
+      if (!digits) return '';
+      if (digits.length <= 2) return '(' + digits;
+      if (digits.length <= 7) return '(' + digits.slice(0, 2) + ') ' + digits.slice(2);
+      if (digits.length <= 11) return '(' + digits.slice(0, 2) + ') ' + digits.slice(2, 7) + '-' + digits.slice(7);
+      return '+' + digits.slice(0, 2) + ' (' + digits.slice(2, 4) + ') ' + digits.slice(4, 9) + '-' + digits.slice(9);
+    }
+  
+    function openModal(trigger) {
+      lastTrigger = trigger || null;
+      activeCtaLabel = trigger ? trigger.textContent.replace(/\s+/g, ' ').trim() : 'Garantir ingresso';
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      setFeedback('', '');
+      window.setTimeout(function(){ emailInput.focus(); }, 40);
+    }
+  
+    function closeModal() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      setFeedback('', '');
+      if (lastTrigger) lastTrigger.focus();
+    }
+  
+    async function insertLead(payload) {
+      if (!config.supabaseUrl || !config.supabaseAnonKey) {
+        throw new Error('Supabase não configurado. Preencha supabaseUrl e supabaseAnonKey em window.CQE_CHECKOUT_CONFIG.');
+      }
+      var response = await fetch(config.supabaseUrl.replace(/\/$/, '') + '/rest/v1/' + (config.table || 'leads2'), {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': config.supabaseAnonKey,
+          'Authorization': 'Bearer ' + config.supabaseAnonKey,
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify(payload)
+      });
+      if (!response.ok) {
+        var errorText = await response.text();
+        throw new Error(errorText || 'Falha ao inserir lead no Supabase.');
+      }
+    }
+  
+    triggers.forEach(function(trigger){
+      trigger.addEventListener('click', function(event){
+        event.preventDefault();
+        openModal(trigger);
+      });
+    });
+  
+    closeButtons.forEach(function(button){
+      button.addEventListener('click', function(){ closeModal(); });
+    });
+  
+    modal.addEventListener('click', function(event){
+      if (event.target === modal) closeModal();
+    });
+  
+    document.addEventListener('keydown', function(event){
+      if (event.key === 'Escape' && modal.classList.contains('open')) closeModal();
+    });
+  
+    whatsappInput.addEventListener('input', function(){
+      whatsappInput.value = formatWhatsapp(whatsappInput.value);
+    });
+  
+    form.addEventListener('submit', async function(event){
+      event.preventDefault();
+      setFeedback('', '');
+  
+      var email = emailInput.value.trim();
+      var whatsapp = formatWhatsapp(whatsappInput.value);
+      var whatsappDigits = digitsOnly(whatsapp);
+      var checkoutUrl = (config.checkoutUrl || '').trim();
+  
+      emailInput.value = email;
+      whatsappInput.value = whatsapp;
+  
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        setFeedback('Digite um e-mail valido para continuar.');
+        emailInput.focus();
+        return;
+      }
+  
+      if (whatsappDigits.length < 10) {
+        setFeedback('Digite um WhatsApp com DDD valido.');
+        whatsappInput.focus();
+        return;
+      }
+  
+      if (!checkoutUrl) {
+        setFeedback('Configure o checkoutUrl em window.CQE_CHECKOUT_CONFIG antes de publicar.');
+        return;
+      }
+  
+      submitButton.disabled = true;
+      submitButton.textContent = 'ENVIANDO...';
+  
+      try {
+        var params = new URLSearchParams(window.location.search);
+        var payload = {
+          email: email,
+          whatsapp: whatsapp,
+          whatsapp_digits: whatsappDigits,
+          source_page: 'page-guilherme-v4',
+          event_name: 'checkout_intent',
+          cta_label: activeCtaLabel,
+          checkout_url: checkoutUrl,
+          page_path: window.location.pathname,
+          referrer: document.referrer || null,
+          user_agent: navigator.userAgent,
+          utm_source: params.get('utm_source'),
+          utm_medium: params.get('utm_medium'),
+          utm_campaign: params.get('utm_campaign'),
+          utm_content: params.get('utm_content'),
+          utm_term: params.get('utm_term')
+        };
+  
+        await insertLead(payload);
+        setFeedback('Dados salvos. Redirecionando para o checkout...', 'success');
+        window.setTimeout(function(){ window.location.href = checkoutUrl; }, 250);
+      } catch (error) {
+        console.error(error);
+        setFeedback('Nao consegui salvar seus dados no Supabase. Verifique a tabela leads2 e as credenciais do checkout.');
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = 'IR PARA O CHECKOUT!';
+      }
+    });
+  })();
+  </script>
+  
+  <script>
   // FAQ — close others when one opens (accordion-like, but allows multiple via Ctrl)
   const faqItems = document.querySelectorAll('.faq-item');
   faqItems.forEach(item => {
@@ -1966,7 +2257,7 @@
   });
   
   // Smooth scroll for in-page anchors (fallback for browsers w/o smooth)
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
+  document.querySelectorAll('a[href^="#"]:not([data-open-checkout])').forEach(a => {
     a.addEventListener('click', (e) => {
       const id = a.getAttribute('href');
       if (id.length < 2) return;
